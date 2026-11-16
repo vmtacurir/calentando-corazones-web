@@ -1,0 +1,10 @@
+# Fotografías originales conservadas únicamente en esta computadora.
+imagenes/*.jpg
+!imagenes/fondo.jpg
+imagenes/LOGO.png
+imagenes/actividades/*.jpg
+
+# Archivos temporales del sistema y de revisión.
+Thumbs.db
+.DS_Store
+.codex-*

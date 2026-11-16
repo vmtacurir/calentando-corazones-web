@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b2942" />
+  <meta name="description" content="Conoce Calentando Corazones, un voluntariado solidario en Sucre, Bolivia." />
+  <title>Calentando Corazones | Voluntariado solidario</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <header class="cabecera">
+    <a class="marca" href="#inicio" aria-label="Calentando Corazones, ir al inicio">
+      <img class="marca-logo" src="imagenes/logo-web.webp" alt="Calentando Corazones — Sucre, Bolivia" width="650" height="373" />
+    </a>
+    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">☰</button>
+    <nav id="menu" class="menu" aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a><a href="#actividades">Actividades</a><a href="#nosotros">Quiénes somos</a><a href="#labor">Nuestra labor</a><a href="#galeria">Galería</a><a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+  <main>
+    <section class="portada" id="inicio">
+      <div class="contenedor portada-contenido"><span class="etiqueta">Voluntariado solidario · Sucre, Bolivia</span><h1>Ayudar, <em>es cuestion del Corazon.</em></h1><p>Creemos en el valor de ayudar, acompañar y construir una comunidad más solidaria.</p><a class="boton" href="#nosotros">Conócenos <span aria-hidden="true">→</span></a></div>
+      <div class="decoracion" aria-hidden="true">♥</div>
+    </section>
+    <section class="seccion actividades" id="actividades">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <span class="eyebrow">Agenda solidaria</span>
+          <h2>Próxima actividad</h2>
+          <p>Publicaremos aquí nuestras próximas salidas, campañas y eventos.</p>
+        </div>
+        <article class="actividad-destacada">
+          <div class="flyer-marco">
+            <button class="flyer-boton" id="flyer-abrir" type="button" aria-label="Ampliar el flyer de la próxima actividad" hidden>
+              <img class="flyer-imagen" id="flyer-actual" src="imagenes/actividades/flyer-actual.webp" alt="Flyer de la próxima actividad de Calentando Corazones" />
+              <span>Ver flyer completo</span>
+            </button>
+            <div class="flyer-vacio" id="flyer-vacio" role="img" aria-label="Espacio reservado para el flyer de la próxima actividad">
+              <span class="flyer-icono" aria-hidden="true">♡</span>
+              <strong>Próxima publicación</strong>
+              <small>El flyer aparecerá aquí</small>
+            </div>
+          </div>
+          <div class="actividad-informacion">
+            <span class="actividad-estado">Convocatoria abierta</span>
+            <h3>Voluntariado semanal</h3>
+            <p>Únete a nuestro equipo y acompáñanos en una nueva jornada para compartir con quienes más lo necesitan.</p>
+            <p class="actividad-nota">Consulta en el flyer el horario, el punto de encuentro y los números de contacto.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <dialog class="flyer-modal" id="flyer-modal" aria-label="Flyer de la próxima actividad">
+      <div class="flyer-modal-contenido">
+        <button class="flyer-cerrar" id="flyer-cerrar" type="button" aria-label="Cerrar flyer">×</button>
+        <img src="imagenes/actividades/flyer-actual.webp" alt="Flyer ampliado de la próxima actividad de Calentando Corazones" />
+      </div>
+    </dialog>
+    <section class="seccion contenedor" id="nosotros"><div class="encabezado-seccion"><span class="eyebrow">01 · Nuestra identidad</span><h2>¿Quiénes somos?</h2></div><p class="intro">Calentando Corazones es un voluntariado comprometido con la solidaridad y el servicio a la comunidad. Este texto es provisional: lo reemplazaremos con la historia y misión oficiales de la organización.</p><div class="tarjetas"><article class="tarjeta"><span class="simbolo">♡</span><h3>Solidaridad</h3><p>Creemos que cada gesto de apoyo puede marcar una diferencia.</p></article><article class="tarjeta"><span class="simbolo">✦</span><h3>Compromiso</h3><p>Compartimos nuestro tiempo y nuestras capacidades con responsabilidad.</p></article><article class="tarjeta"><span class="simbolo">☀</span><h3>Comunidad</h3><p>Trabajamos juntos para crear vínculos y oportunidades.</p></article></div></section>
+    <section class="seccion zona-suave" id="labor"><div class="contenedor"><div class="encabezado-seccion"><span class="eyebrow">02 · Lo que nos mueve</span><h2>Nuestra labor</h2></div><div class="dos-columnas"><img class="marco-foto" src="imagenes/labor-comunidad.webp" alt="Encuentro de voluntariado con una familia de la comunidad" width="1000" height="750" loading="lazy" decoding="async" /><div><h3>Unidos para ayudar</h3><p>Este espacio presentará las campañas, iniciativas y experiencias del voluntariado. Incorporaremos aquí información real de Calentando Corazones.</p><p>Comenzaremos con pocas secciones, fotografías optimizadas y textos claros para que la página sea fácil de mantener.</p></div></div></div></section>
+    <section class="seccion contenedor" id="galeria">
+      <div class="encabezado-seccion">
+        <span class="eyebrow">03 · Momentos compartidos</span>
+        <h2>Galería</h2>
+        <p>Algunos momentos de nuestras actividades y encuentros con la comunidad.</p>
+      </div>
+      <div class="carrusel" aria-label="Galería de actividades">
+        <button class="flecha" id="anterior" aria-label="Imagen anterior">‹</button>
+        <figure class="diapositiva" id="diapositiva">
+          <img id="imagen-galeria" src="imagenes/galeria/tecito-pan.webp" alt="Entrega de té y pan durante una actividad solidaria" width="1280" height="720" loading="lazy" decoding="async" />
+          <figcaption class="pie-foto">
+            <span id="numero">01 / 08</span>
+            <strong id="texto-foto">Compartiendo té y pan</strong>
+          </figcaption>
+        </figure>
+        <button class="flecha" id="siguiente" aria-label="Imagen siguiente">›</button>
+      </div>
+      <div class="puntos" aria-label="Posición del carrusel">
+        <button class="punto activo" data-slide="0" aria-label="Mostrar imagen 1" aria-current="true"></button>
+        <button class="punto" data-slide="1" aria-label="Mostrar imagen 2"></button>
+        <button class="punto" data-slide="2" aria-label="Mostrar imagen 3"></button>
+        <button class="punto" data-slide="3" aria-label="Mostrar imagen 4"></button>
+        <button class="punto" data-slide="4" aria-label="Mostrar imagen 5"></button>
+        <button class="punto" data-slide="5" aria-label="Mostrar imagen 6"></button>
+        <button class="punto" data-slide="6" aria-label="Mostrar imagen 7"></button>
+        <button class="punto" data-slide="7" aria-label="Mostrar imagen 8"></button>
+      </div>
+    </section>
+    <section class="seccion contacto" id="contacto">
+      <div class="contenedor">
+        <span class="eyebrow">04 · Conversemos</span>
+        <h2>Sigamos conectados</h2>
+        <p>Síguenos en nuestras redes sociales para conocer próximas actividades, campañas y momentos compartidos.</p>
+        <nav class="redes-sociales" aria-label="Redes sociales de Calentando Corazones">
+          <a class="red-social facebook" href="https://www.facebook.com/CalentandoCorazonesSucre" target="_blank" rel="noopener noreferrer" aria-label="Seguir a Calentando Corazones en Facebook">
+            <span class="red-icono" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img"><path d="M14 8h3V4h-3c-3.1 0-5 1.9-5 5v3H6v4h3v8h4v-8h3.5l.5-4h-4V9c0-.7.3-1 1-1Z" /></svg>
+            </span>
+            <span>Facebook</span>
+          </a>
+          <a class="red-social instagram" href="https://www.instagram.com/calentando_corazones_sucre/" target="_blank" rel="noopener noreferrer" aria-label="Seguir a Calentando Corazones en Instagram">
+            <span class="red-icono" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2" /><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" /><circle cx="17.5" cy="6.5" r="1.2" /></svg>
+            </span>
+            <span>Instagram</span>
+          </a>
+          <a class="red-social tiktok" href="https://www.tiktok.com/@calentando_corazones" target="_blank" rel="noopener noreferrer" aria-label="Seguir a Calentando Corazones en TikTok">
+            <span class="red-icono" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img"><path d="M15 3c.3 2.3 1.7 3.8 4 4v4a8 8 0 0 1-4-1.1V16a6 6 0 1 1-5-5.9v4.2A2 2 0 1 0 11 16V3h4Z" /></svg>
+            </span>
+            <span>TikTok</span>
+          </a>
+          <a class="red-social whatsapp" href="https://wa.me/59175762027?text=Hola%2C%20quisiera%20recibir%20informaci%C3%B3n%20sobre%20las%20actividades%20de%20Calentando%20Corazones." target="_blank" rel="noopener noreferrer" aria-label="Escribir a Calentando Corazones por WhatsApp">
+            <span class="red-icono" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.2 1.7 6L.2 24l6.4-1.7a11.8 11.8 0 0 0 5.5 1.4c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.2-3.4-8.4Zm-8.4 18.2c-1.7 0-3.4-.5-4.9-1.3l-.4-.2-3.8 1 1-3.7-.2-.4a9.8 9.8 0 1 1 8.3 4.6Zm5.4-7.3c-.3-.1-1.7-.8-2-1-.3-.1-.5-.1-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.4-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.6l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.6c.2.2 2.4 3.7 5.8 5.2 2.2 1 3.1 1 4.2.9.7-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.2-.3-.3-.6-.4Z" /></svg>
+            </span>
+            <span>WhatsApp</span>
+          </a>
+        </nav>
+      </div>
+    </section>
+  </main>
+  <footer class="pie"><div class="contenedor"><strong>♥ Calentando Corazones</strong><span>Sucre, Bolivia · Sitio informativo de demostración</span><span>© <span id="anio"></span> Calentando Corazones</span></div></footer>
+</body>
+</html>
