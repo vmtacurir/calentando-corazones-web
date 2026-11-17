@@ -1,5 +1,12 @@
 name: Azure Static Web Apps CI/CD
 
+permissions:
+  contents: read
+
+concurrency:
+  group: azure-static-web-apps-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 on:
   push:
     branches:
@@ -15,23 +22,25 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          submodules: true
-          lfs: false
+          persist-credentials: false
+
+      - name: Validate static files
+        run: |
+          node --check js/script.js
+          node -e "JSON.parse(require('node:fs').readFileSync('staticwebapp.config.json', 'utf8'))"
+
       - name: Build And Deploy
         id: builddeploy
-        uses: Azure/static-web-apps-deploy@v1
+        uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9 # v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ORANGE_COAST_0CE482510 }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
-          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "/" # App source code path
-          api_location: "" # Api source code path - optional
-          output_location: "" # Built app content directory - optional
-          ###### End of Repository/Build Configurations ######
+          app_location: "/"
+          api_location: ""
+          output_location: ""
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
@@ -40,7 +49,7 @@ jobs:
     steps:
       - name: Close Pull Request
         id: closepullrequest
-        uses: Azure/static-web-apps-deploy@v1
+        uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9 # v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ORANGE_COAST_0CE482510 }}
           action: "close"

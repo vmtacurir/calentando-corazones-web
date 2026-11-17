@@ -1,52 +1,87 @@
-# Calentando Corazones — sitio inicial para Microsoft Azure
+# Calentando Corazones — sitio web
 
-Primera versión informativa hecha con HTML, CSS y JavaScript. No requiere Astro, Node, base de datos ni servicios de pago. **No se ha publicado en Azure todavía.**
+Sitio informativo y responsivo del voluntariado Calentando Corazones, construido con HTML, CSS y JavaScript sin dependencias externas, base de datos ni servicios de pago.
 
-## 1. Probar en una computadora
-- Abre esta carpeta en Visual Studio Code.
-- Abre `index.html` en tu navegador, o usa la extensión Live Server.
-- Revisa los enlaces de navegación, el menú móvil y el carrusel.
+**Estado:** publicado en Azure Static Web Apps:
 
-## 2. Contenido que falta (no inventar)
-- Historia real y descripción aprobada de la organización.
-- Enlaces oficiales a Facebook, Instagram, y WhatsApp o correo (si se desea publicar).
-- Confirmación final de colores y textos antes de publicar.
+https://orange-coast-0ce482510.8.azurestaticapps.net/
 
-El logotipo y una selección de fotografías optimizadas ya están incorporados. Los originales permanecen en `imagenes/` y las copias ligeras de la galería están en `imagenes/galeria/`. No hay formularios ni base de datos.
+El repositorio de GitHub es la fuente del sitio. Cada cambio enviado a la rama `main` activa automáticamente la validación y el despliegue en Azure.
 
-### Actualizar la próxima actividad
-La sección **Próxima actividad** se actualiza manualmente. Convierte el flyer a WebP, llámalo `flyer-actual.webp` y guárdalo dentro de `imagenes/actividades/`. Para publicar el siguiente, reemplaza ese mismo archivo y vuelve a subir el sitio. No es necesario modificar el HTML.
+## Probar cambios en la computadora
 
-## 3. Subir a GitHub
-1. Crea un repositorio (por ejemplo `calentando-corazones-web`).
-2. Sube **el contenido de esta carpeta**, de forma que `index.html` quede en la raíz del repositorio.
-3. No subas contraseñas, claves ni información privada.
+1. Abre esta carpeta en Visual Studio Code.
+2. Abre `index.html` con la extensión Live Server o directamente con Google Chrome.
+3. Revisa la navegación, el menú móvil, el flyer, el carrusel y los enlaces sociales.
 
-## 4. Publicar gratis en Azure Static Web Apps
-1. En https://portal.azure.com busca **Static Web Apps** y selecciona **Create**.
-2. Selecciona la suscripción y crea un grupo de recursos (por ejemplo `rg-calentando-corazones`).
-3. Plan de hospedaje: **Free**. Origen de despliegue: **GitHub**.
-4. Autoriza GitHub y elige el repositorio y rama principal.
-5. En Build Details selecciona **Custom** (sitio sin framework).
-6. `App location`: `/`; `Api location`: dejar vacío; `Output location`: dejar vacío. No se necesita comando de compilación.
-7. Crea el recurso. Azure generará un flujo de GitHub Actions en `.github/workflows/` y publicará la página.
-8. Entra en el URL generado `https://<nombre-asignado>.azurestaticapps.net` y comprueba la web en computadora y celular.
-9. No compres el dominio todavía. Cuando la web esté aprobada, conéctalo en **Settings > Custom domains**.
+Los cambios locales no modifican la página pública hasta hacer un commit y enviarlo a GitHub.
 
-**Aviso:** Algunos campos pueden verse distintos según la versión del portal. El URL final depende de Azure, no se puede conocer antes del despliegue.
+## Actualizar el flyer semanal
 
-## 5. Controles antes de publicar como sitio oficial
-- Reemplazar textos de muestra y fotos de ejemplo por contenido real autorizado.
-- Probar en móvil, escritorio y conexión lenta.
-- Comprobar que las redes sociales apunten a las cuentas correctas.
-- Verificar títulos, metadatos, accesibilidad, contenido y ortografía.
-- Confirmar que la cuota gratuita y el plan seleccionado son los correctos.
+1. Convierte el nuevo flyer a WebP, preferentemente con proporción 4:5 y un peso menor a 500 KB.
+2. Reemplaza `imagenes/actividades/flyer-actual.webp` conservando exactamente ese nombre.
+3. En `index.html`, actualiza los datos visibles y accesibles del bloque `detalles-actividad`: día, hora, punto de encuentro y contactos.
+4. Ajusta también el texto alternativo del flyer si cambia el tipo de actividad.
+5. Comprueba la página antes de publicarla.
 
-## 6. Archivos principales
-- `index.html`: secciones y textos.
-- `css/estilos.css`: estilos y colores.
-- `js/script.js`: menú y carrusel.
-- `imagenes/`: fotos y logotipo oficiales.
-- `staticwebapp.config.json`: configuración mínima para Azure, con encabezados de seguridad.
+Azure tiene una regla de caché especial para ese archivo, por lo que el navegador volverá a comprobar si existe un flyer nuevo.
 
-Más información: https://learn.microsoft.com/azure/static-web-apps/getting-started?tabs=vanilla-javascript
+## Actualizar la galería
+
+- Guarda las fotos públicas dentro de `imagenes/galeria/` en formato WebP.
+- Se recomienda una proporción 16:9, resolución aproximada de 1280 × 720 y menos de 250 KB por imagen.
+- Añade o retira la información de la foto únicamente en el arreglo `fotos` de `js/script.js`.
+- Los puntos de navegación se generan automáticamente; no hace falta editar el HTML.
+
+## Publicar una actualización
+
+El despliegue no requiere ejecutar `az login` ni usar Azure CLI.
+
+1. Revisa los cambios con `git status`.
+2. Crea un commit.
+3. Envía la rama `main` a GitHub.
+4. GitHub Actions valida el JavaScript y la configuración de Azure.
+5. Si las validaciones pasan, Azure Static Web Apps publica la nueva versión.
+
+El flujo de publicación está en `.github/workflows/azure-static-web-apps-orange-coast-0ce482510.yml`.
+
+## Seguridad, privacidad y contenido
+
+- La política CSP solo permite recursos del propio sitio y bloquea scripts, marcos, conexiones y formularios externos.
+- Azure envía encabezados contra clickjacking, detección incorrecta de tipos, permisos sensibles y filtración innecesaria de referencias.
+- El sitio no tiene formularios, cuentas, pagos, analítica, base de datos ni código de terceros.
+- Actualmente el sitio no instala cookies propias, por lo que no necesita un banner de consentimiento. Esto debe revisarse si se incorpora analítica, contenido incrustado o cualquier servicio externo.
+- No guardes contraseñas, tokens, claves ni datos privados en el repositorio.
+- Confirma por escrito los derechos de uso de cada fotografía. En imágenes de niñas, niños o personas en situaciones sensibles, conserva la autorización de su responsable legal antes de publicarlas.
+- El número de WhatsApp y los teléfonos del flyer son públicos; usa únicamente números autorizados para recibir consultas.
+
+## Cuando se conecte el dominio definitivo
+
+Después de conectar el dominio propio en Azure:
+
+1. Añade una URL canónica (`canonical`) y `og:url` con el dominio definitivo.
+2. Cambia `og:image` para que use el dominio definitivo.
+3. Crea o actualiza `sitemap.xml` y añade su dirección a `robots.txt`.
+4. Registra el dominio en Google Search Console.
+5. Verifica nuevamente HTTPS y los encabezados de seguridad.
+
+No conviene fijar como canónica la dirección temporal de Azure antes de tener el dominio oficial.
+
+## Validaciones locales
+
+```powershell
+node --check js/script.js
+Get-Content staticwebapp.config.json -Raw | ConvertFrom-Json | Out-Null
+git diff --check
+```
+
+## Archivos principales
+
+- `index.html`: contenido, secciones y metadatos.
+- `css/estilos.css`: diseño, colores y adaptación móvil.
+- `js/script.js`: menú, carrusel, flyer y año del pie de página.
+- `imagenes/`: recursos optimizados que sí se publican.
+- `staticwebapp.config.json`: caché y encabezados de seguridad de Azure.
+- `.github/workflows/`: validación y despliegue automático.
+
+Documentación oficial: https://learn.microsoft.com/azure/static-web-apps/
